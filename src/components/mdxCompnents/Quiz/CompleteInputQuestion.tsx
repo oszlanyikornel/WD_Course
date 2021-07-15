@@ -9,7 +9,13 @@ import {
 import React from "react";
 import { useFormikContext } from "formik";
 
-const CompleteInputQuestion = ({ question, active }) => {
+const CompleteInputQuestion = ({
+	question,
+	active,
+}: {
+	question: any;
+	active: any;
+}) => {
 	const {
 		values,
 		setFieldValue,
@@ -28,7 +34,7 @@ const CompleteInputQuestion = ({ question, active }) => {
 			rounded="xl"
 			borderColor="gray.200"
 		>
-			{question.text.split("---").map((chunk, index) => {
+			{question.text.split("---").map((chunk: any, index: any) => {
 				return (
 					<>
 						<Text as="span">{chunk}</Text>
@@ -51,7 +57,7 @@ const CompleteInputQuestion = ({ question, active }) => {
 								onChange={(e) => {
 									setFieldValue(
 										`a${active}`,
-										values[`a${active}`].map((v, i) => {
+										values[`a${active}`].map((v: any, i: any) => {
 											if (i === index) {
 												return e.target.value;
 											} else {

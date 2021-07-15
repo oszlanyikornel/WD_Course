@@ -50,7 +50,7 @@ const TextInputQuestion: FC<TextInputQuestionProps> = ({
 									if (Array.isArray(values[`a${active}`])) {
 										setFieldValue(
 											`a${active}`,
-											values[`a${active}`].map((v, idx) => {
+											values[`a${active}`].map((v: any, idx: any) => {
 												if (idx === index) {
 													return e.target.value;
 												} else {

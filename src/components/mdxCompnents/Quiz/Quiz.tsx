@@ -15,10 +15,10 @@ import QuestionFactory from "./QuestionFactory";
 import { Form, Formik } from "formik";
 import { questions } from "../../../pages/test";
 
-const Quiz = ({ src }) => {
+const Quiz = ({ src }: { src: any }) => {
 	const [active, setActive] = useState(0);
 	// TODO put quit in center of hr + instruction next to question title
-	const handleFormSubmit = ({ values }) => {
+	const handleFormSubmit = ({ values }: { values: any }) => {
 		console.log(values);
 	};
 
