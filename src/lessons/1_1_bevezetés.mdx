@@ -1,0 +1,94 @@
+---
+title: Webfejlesztés
+slug: webfejlesztes
+module: Bevezetés
+moduleSlug: bevezetes
+icon: hand
+---
+
+## Weblap
+
+A webfejlesztés célja weblapok készítése és karbantartása, ezért előszőr fontos megismerkedni a weboldal fogalmával és az azt alkotó tényezőkkel.
+
+A weboldal egy olyan weblapokból és különböző tartalmakból összeálló gyűjtemény, amelyet egy közös domain név fog össze és egy (vagy több) web szerveren van közzétéve.
+
+<CodeBlock
+	renderIndex={0}
+	codeBlocks={[
+		{
+			fileName: "styles.jsx",
+			code: `function createStyleObject(classNames, style) {
+  return classNames.reduce((styleObject, className) => {
+    return {...styleObject, ...style[className]};
+  }, {});
+}`,
+			id: 1,
+			language: "javascript",
+		},
+	]}
+	showNames={false}
+	showLineNumbers={true}
+/>
+
+## Weboldal
+
+A Weboldalak olyan hypertext (HTML - HyperText Markup Language) dokumentumok, amelyeket a weboldal ad a felhasználóknak és ezeket a fájlokat a böngésző jeleníti meg.
+
+## Böngésző
+
+A bönésző az egy olyan alkalmazás, amely képes különböző weboldlak megjelenítésére és az előbbiekben tárgyalt html nyelv mellett a még a CSS és a Javascript nyelvet is meg tudja érteni (erről majd később bővebben lesz szó).
+
+A böngésző a szervertől kapott HTML, CSS és Javascript fájlokat jeleníti meg, vizuális formában (nem kód formájában).
+
+<Quiz src="/src/pages/test" />
+
+## Domain
+
+A Domain Name System (DNS) egy olyan elnevezési rendszer, amely az egyes számítógépeket, vagy számítógépek csoportját egy névvel párosítja. Így ahelyett, hogy a szerver ip címét (egyedi azonosítóját) kéne beírnunk a böngészőbe (pl. 172.16.254.1), egy nevet is beírhatunk helyette, amely egy névszerveren van tárolva az adott ip címmel párosítva.
+
+Amikor a böngészőbe beírunk egy domain nevet (pl: google.com), először egy lekérést indítunk egy név szerverre, amely visszaadja az adott szerver ip címét és így lehetőséget ad az azzal való kommunikációra.
+Legtöbb esetben egy weblapot nem csak egy szerveren tárolunk, hanem több szerver van készenlétben a felhasználók kiszolgálására, így a domain név beütésével nem mindig ugyanarra a szerverre irányít minket a böngésző.
+
+Egyszerűen fogalmazva a domain név arra szolgál, hogy beazonosítsa az egyes szervereket vagy szerver csoportokat, amelyeken futtatjuk a weblapunkat vagy más szolgáltatásunkat.
+
+## Szerver
+
+Sokszor említettük már a szervereket, de fontos ezt a fogalmat is körüljárnunk először, hogy megértsük az internet mőködését.
+
+A szerver egy számítógép, amelyen szolgáltatások futnak (pl. web szerver) a kliensek (más számítógépek) kiszolgálására.
+
+Ezt kliens-szerver felépításnek hívjuk.
+
+## Felhő
+
+## Backend & Frontend
+
+## Internet
+
+Az internet az egész világot körülölelő számítógép-hálózat, hatalmas rendszer, amely kisebb számítógép-hálózatokat fog össze.
+
+## Számítógép hálózatok
+
+A számítógép hálózat, kettő vagy több számítógép olyan összekötését jelenti, amely során az adatok kommunikálása a cél.
+
+## HTTP
+
+## (kesobb) fast refresh protocoll (nem jut eszembe a neve)
+
+### Programming basics
+
+## Kódolás / Programozás
+
+## Compiling / fordítás
+
+## Running code
+
+## Kódszerkesztő
+
+### Frontend
+
+## HTML, CSS, Javascript
+
+### Backend
+
+## Nodejs & más nyelvek

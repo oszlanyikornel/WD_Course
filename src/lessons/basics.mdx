@@ -1,0 +1,62 @@
+---
+title: Basics
+slug: basics
+module: CSS
+moduleSlug: css
+icon: hand
+---
+
+# An h1 header
+
+Paragraphs are separated by a blank line.
+
+<CodeBlock
+	renderIndex={0}
+	codeBlocks={[
+		{
+			fileName: "modules.jsx",
+			code: `const Comp = () => {
+                 return 
+                 <div>
+                     Hy
+                </div>
+                }`,
+			id: 0,
+			language: "jsx",
+		},
+		{
+			fileName: "styles.jsx",
+			code: `function createStyleObject(classNames, style) {
+  return classNames.reduce((styleObject, className) => {
+    return {...styleObject, ...style[className]};
+  }, {});
+}`,
+			id: 1,
+			language: "javascript",
+		},
+	]}
+	showNames={true}
+	showLineNumbers={true}
+/>
+
+2nd paragraph. _Italic_, **bold**, and `monospace`. Itemized lists
+look like:
+
+- this one
+- that one
+- the other one
+
+<Quiz src="/src/pages/test" />
+
+Note that --- not considering the asterisk --- the actual text
+content starts at 4-columns in.
+
+> Block quotes are
+> written like so.
+>
+> They can span multiple paragraphs,
+> if you like.
+
+Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's all
+in chapters 12--14"). Three dots ... will be converted to an ellipsis.
+Unicode is supported. ☺
