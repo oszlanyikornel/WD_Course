@@ -5,6 +5,7 @@ import {
 	EditablePreview,
 	Input,
 	Text,
+	useColorModeValue,
 } from "@chakra-ui/react";
 import React from "react";
 import { useFormikContext } from "formik";
@@ -16,6 +17,7 @@ const CompleteInputQuestion = ({
 	question: any;
 	active: any;
 }) => {
+	const borderColor = useColorModeValue("gray.300", "gray.600");
 	const {
 		values,
 		setFieldValue,
@@ -32,7 +34,7 @@ const CompleteInputQuestion = ({
 			px={6}
 			border="1px"
 			rounded="xl"
-			borderColor="gray.200"
+			borderColor={borderColor}
 		>
 			{question.text.split("---").map((chunk: any, index: any) => {
 				return (
@@ -44,7 +46,7 @@ const CompleteInputQuestion = ({
 									borderColor: "green.400",
 								}}
 								borderColor={
-									values[`a${active}`][index] ? "green.400" : "gray.300"
+									values[`a${active}`][index] ? "green.400" : borderColor
 								}
 								_hover={
 									values[`a${active}`][index]

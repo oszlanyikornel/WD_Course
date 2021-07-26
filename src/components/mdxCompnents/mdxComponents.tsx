@@ -6,6 +6,8 @@ import {
 	OrderedList,
 	Text,
 	UnorderedList,
+	Image,
+	Center,
 } from "@chakra-ui/react";
 import React from "react";
 import CodeBlock from "./CodeBlock";
@@ -27,6 +29,23 @@ export const mdxComponents = {
 	ul: (props: any) => <UnorderedList my={6} pl={4} {...props} as="ul" />,
 	ol: (props: any) => <OrderedList my={6} pl={4} {...props} as="ul" />,
 	li: (props: any) => <ListItem {...props} as="li" />,
+	Image: ({
+		alignImage,
+		alt,
+		...other
+	}: {
+		alignImage: string | undefined | null;
+		alt: string | undefined | null;
+	}) => (
+		<Center
+			my={14}
+			w="100%"
+			flexDirection="column"
+			alignItems={alignImage || "center"}
+		>
+			<Image {...other} alt={alt || ""} />
+		</Center>
+	),
 	CodeBlock: CodeBlock,
 	Quiz: Quiz,
 };
