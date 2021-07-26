@@ -12,44 +12,68 @@ A webfejlesztés célja weblapok készítése és karbantartása, ezért elősz�
 
 A weboldal egy olyan weblapokból és különböző tartalmakból összeálló gyűjtemény, amelyet egy közös domain név fog össze és egy (vagy több) web szerveren van közzétéve.
 
-<CodeBlock
-	renderIndex={0}
-	codeBlocks={[
-		{
-			fileName: "styles.jsx",
-			code: `function createStyleObject(classNames, style) {
-  return classNames.reduce((styleObject, className) => {
-    return {...styleObject, ...style[className]};
-  }, {});
-}`,
-			id: 1,
-			language: "javascript",
-		},
-	]}
-	showNames={false}
-	showLineNumbers={true}
-/>
-
 ## Weboldal
 
 A Weboldalak olyan hypertext (HTML - HyperText Markup Language) dokumentumok, amelyeket a weboldal ad a felhasználóknak és ezeket a fájlokat a böngésző jeleníti meg.
 
 ## Böngésző
 
-A bönésző az egy olyan alkalmazás, amely képes különböző weboldlak megjelenítésére és az előbbiekben tárgyalt html nyelv mellett a még a CSS és a Javascript nyelvet is meg tudja érteni (erről majd később bővebben lesz szó).
+A böngésző az egy olyan alkalmazás, amely képes különböző weboldlak megjelenítésére és az előbbiekben tárgyalt html nyelv mellett a még a CSS és a Javascript nyelvet is meg tudja érteni (erről majd később bővebben lesz szó).
 
 A böngésző a szervertől kapott HTML, CSS és Javascript fájlokat jeleníti meg, vizuális formában (nem kód formájában).
 
-<Quiz src="/src/pages/test" />
+<Image
+	src="/1/webpage.svg"
+	color="green.400"
+	alignImage="center"
+	w="40%"
+	alt="honlap"
+/>
 
 ## Domain
 
-A Domain Name System (DNS) egy olyan elnevezési rendszer, amely az egyes számítógépeket, vagy számítógépek csoportját egy névvel párosítja. Így ahelyett, hogy a szerver ip címét (egyedi azonosítóját) kéne beírnunk a böngészőbe (pl. 172.16.254.1), egy nevet is beírhatunk helyette, amely egy névszerveren van tárolva az adott ip címmel párosítva.
+A domain az internet egy részét leíró megnevezés. A domain név segítségével behatárolunk egy szeletet az internetből. Például a google.com alá tartozik minden olyan szolgáltatás amit a Google nyújt. Tehát az internetnek ezen "szelete" egyértelműen az övé.
 
-Amikor a böngészőbe beírunk egy domain nevet (pl: google.com), először egy lekérést indítunk egy név szerverre, amely visszaadja az adott szerver ip címét és így lehetőséget ad az azzal való kommunikációra.
-Legtöbb esetben egy weblapot nem csak egy szerveren tárolunk, hanem több szerver van készenlétben a felhasználók kiszolgálására, így a domain név beütésével nem mindig ugyanarra a szerverre irányít minket a böngésző.
+Email domain
 
-Egyszerűen fogalmazva a domain név arra szolgál, hogy beazonosítsa az egyes szervereket vagy szerver csoportokat, amelyeken futtatjuk a weblapunkat vagy más szolgáltatásunkat.
+## Domain Name System (DNS)
+
+A Domain Name System (DNS) egy olyan elnevezési rendszer, amely az egyes szervereket egy névvel párosítja. Így ahelyett, hogy a szerver ip címét (egyedi azonosítóját) kéne beírnunk a böngészőbe (pl. 172.16.254.1), egy nevet is beírhatunk helyette, amely egy névszerveren van tárolva az adott ip címmel párosítva.
+
+Amikor a böngészőbe beírunk egy domain nevet (pl: google.com) 4 dolog történik:
+
+- A böngésző megnézi, hogy el van-e mentve az addott domain névhez tartozó ip cím
+- Ha nem talál ip címet a böngésző, akkor lekérést indít egy név szerverre, amely visszaadja a keresett oldalhoz tartozó ip címet
+- Ezt az újonnan kapott domain - ip cím párosítást lementi a böngésző, hogy legközelebb ne keljen felesleges lekérést indítania a név szerverre
+- Ezután, mivel az ip cím megvan már, elindulhat az adott holnap szerverével való kommunikáció
+
+<Image
+	src="/1/dns.png"
+	color="green.400"
+	alignImage="center"
+	w="40%"
+	alt="dns"
+/>
+
+## URL (webcím)
+
+A böngészőbe beírt url több részből áll:
+
+- Protokoll: Ez az a protokol amivel az internetre csatlakozik az adott weboldal. Ez lehet a http vagy https.
+- Subdomain: Ez a gyökérdomainnek egy elkülönített része
+- Domain név: Ez az dott oldalnak a domain neve (ez a gyökér domain) (pl.: tesco)
+- Top level domain: Ez a domain nevek végén található (pl.: .hu)
+- Útvonal: Ezzekkel tudunk különböző oldalkra navigálni a honlapon belül pl.: (tesco.com/bevasarlas/intezkedesek/)
+
+Egy adott domainhez több szerver is csatlakozhat subdomaineken keresztül (pl.: tesco.hu -> bevasarlas.tesco.hu)
+
+<Image
+	src="/1/url.png"
+	color="green.400"
+	alignImage="center"
+	w="40%"
+	alt="honlap"
+/>
 
 ## Szerver
 
@@ -59,36 +83,97 @@ A szerver egy számítógép, amelyen szolgáltatások futnak (pl. web szerver) 
 
 Ezt kliens-szerver felépításnek hívjuk.
 
+<Image
+	src="/1/server.svg"
+	color="green.400"
+	alignImage="center"
+	w="40%"
+	alt="sevrer"
+/>
+
+## Szerver terem
+
+A Szerver terem az a hely (terem), ahol a szervereket tároljuk. Ezeket összekötjük, hogy egymással tudjanak kommunikálni, illetve az internetet is bekötjük, hogy a külvilággal is tudjanak kommunikálni. Ez nem egy egyszerű feladat, mivel nehéz őket felállítani és karbantartani. Arra is oda kell figyelni, hogy a hűtés megfelelő legyen, az áramellátás ne álljon le áramszünet idején, az internet megfelelően be legyen kötve és gyors legyen.
+
 ## Felhő
 
-## Backend & Frontend
+Ahelyett hogy saját szervereket működtessünk, lehetőség van arra is, hogy más cégek által működtett hatalmas szervertermek szervereinek egy részét egy adott ideig kibéreljük. A felhőalapú szolgáltatások segítségével nem kell bajlódnunk a szerverek fizikai felállításával és üzemeltetésével, hanem ezekről a szolgáltató gondoskodik. Nekünk csak pár gombnyomásba kerül a folyamat.
 
-## Internet
+A felhőalapú szolgáltatásokért általában óradíjat kell fizetni, így csak azért fizetünk amit használunk és csak addig ameddig használjuk. Ha esetleg ünnepnapokon nagyobb forgalom van a szerveren (például sokan rendelnek a webshopunkról), akkor arra az időszakra könnyen ki tudunk bérelni több szervert, így pénzt spórolva.
 
-Az internet az egész világot körülölelő számítógép-hálózat, hatalmas rendszer, amely kisebb számítógép-hálózatokat fog össze.
+<Image
+	src="/1/cloud.svg"
+	color="green.400"
+	alignImage="center"
+	w="40%"
+	alt="cloud"
+/>
 
 ## Számítógép hálózatok
 
-A számítógép hálózat, kettő vagy több számítógép olyan összekötését jelenti, amely során az adatok kommunikálása a cél.
+A számítógép hálózat, kettő vagy több számítógép olyan összekötését jelenti, amely során az adatok kommunikálása a cél. A szervertermekbe egymással összekötött számítógépek például alkothatnak egy számítógép hálózatot.
+
+<Image
+	src="/1/network.svg"
+	color="green.400"
+	alignImage="center"
+	w="40%"
+	alt="network"
+/>
+
+## Internet
+
+Az internet az egész világot körülölelő számítógép-hálózat, amely kisebb számítógép-hálózatokat fog össze.
+
+<Image
+	src="/1/internet.svg"
+	color="green.400"
+	alignImage="center"
+	w="40%"
+	alt="internet"
+/>
 
 ## HTTP
 
-## (kesobb) fast refresh protocoll (nem jut eszembe a neve)
+A http egy olyan protokoll (szabályok rendszere), amely böngészők és szerverek kommunikációjára lett tervezve.
+Szerverek is tudnak ezen keresztül kommunikálni egymással.
 
-### Programming basics
+<Image
+	src="/1/http.svg"
+	color="green.400"
+	alignImage="center"
+	w="40%"
+	alt="http"
+/>
 
-## Kódolás / Programozás
+## HTTPS
 
-## Compiling / fordítás
+A https a http-nek egy olyan kibővítése, amely lehetővé teszi kommunikáció biztonságát, titkosítás segítségével.
 
-## Running code
+## AJAX
 
-## Kódszerkesztő
+Az AJAX olyan webfejlesztési technikák összessége, amely segítségével a webalkalmazás küldhet és fogadhat adatokat a háttérbe anélkül, hogy a honlap újratöltődne vagy leállna.
 
-### Frontend
+Így például tudunk lekéréseket indítani a szerverre anélkül, hogy beírnánk az url címet és újratöltődne az oldal emiatt
 
-## HTML, CSS, Javascript
+## Backend & Frontend
 
-### Backend,
+A webalkalmazásoknak alapvetően két része van.
 
-## Nodejs & más nyelvek
+A frontend része az, amelyiket a kliens (felhasználó, böngésző) megkapja. Ez lehet pédául html, css, javascript vagy képek, videók. Egyszerűen mondva ez a vizuális része a honlapnak.
+
+A backendet a felhasználó nem éri el közvetlenül, hanem egy API (Application Interface) segítségével lehet kommunikálni vele. Ez pédául úgy történik, hogy ha egy gombot megnyomunk a frontenden, akkor a frontend az API-n keresztül kapcsolatba lép a backendel és adatokat kér attól. A backend általába az adatok tárolásáért és manipulálásáért felelős. A backend magába foglalhatja a webalkalmazásokat és más szolgáltatásokat, illetve az adatbázisokat.
+
+## Adatbázis
+
+Az adatbázis az adatok tárolásárt felelős. Ebben tárolhatjuk, illetve ezen keresztül kérhetjük le a szükséges adatokat.
+
+<Image
+	src="/1/database.svg"
+	color="green.400"
+	alignImage="center"
+	w="40%"
+	alt="db"
+/>
+
+<Quiz src="quizes/1_1" />

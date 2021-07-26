@@ -7,11 +7,10 @@ import Modules, { ModuleType } from "../components/Modules/Modules";
 import SubMenu from "../components/Content/SubMenu";
 import Scrollspy from "react-scrollspy";
 import { useRouter } from "next/router";
-
 export default function Home() {
 	const router = useRouter();
 	useEffect(() => {
-		router.push("/known-raises");
+		router.push("/webfejlesztes");
 	}, []);
 
 	return (

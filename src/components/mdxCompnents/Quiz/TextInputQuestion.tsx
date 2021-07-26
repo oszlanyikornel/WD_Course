@@ -4,6 +4,7 @@ import {
 	Input,
 	InputGroup,
 	InputLeftElement,
+	useColorModeValue,
 } from "@chakra-ui/react";
 import { valueScaleCorrection } from "framer-motion/types/render/dom/projection/scale-correction";
 import React, { FC } from "react";
@@ -19,6 +20,8 @@ const TextInputQuestion: FC<TextInputQuestionProps> = ({
 	active,
 	question,
 }) => {
+	const borderColor = useColorModeValue("gray.300", "gray.600");
+
 	const {
 		values,
 		setFieldValue,
@@ -68,12 +71,12 @@ const TextInputQuestion: FC<TextInputQuestionProps> = ({
 										: values[`a${active}`]
 								}
 								borderColor={
-									values[`a${active}`][index] ? "green.400" : "gray.300"
+									values[`a${active}`][index] ? "green.400" : borderColor
 								}
 								_hover={
 									values[`a${active}`][index]
 										? { borderColor: "green.400" }
-										: { borderColor: "gray.300" }
+										: { borderColor: borderColor }
 								}
 								_focus={{
 									borderColor: "green.400",

@@ -7,6 +7,7 @@ import {
 	Heading,
 	HStack,
 	Text,
+	useColorModeValue,
 	VStack,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
@@ -27,6 +28,9 @@ const RadioQuestion = ({
 		values: any;
 		setFieldValue: (field: string, val: number | number[]) => void;
 	} = useFormikContext();
+	const textColor = useColorModeValue("gray.700", "gray.200");
+	const borderColor = useColorModeValue("gray.300", "gray.600");
+	const hoverColor = useColorModeValue("gray.50", "gray.800");
 
 	return (
 		<Grid
@@ -57,14 +61,14 @@ const RadioQuestion = ({
 						}}
 						transition="all 0.2s"
 						_hover={{
-							bg: "gray.50",
+							bg: hoverColor,
 						}}
 						_active={{
-							bg: "gray.100",
+							bg: hoverColor,
 						}}
 						cursor="pointer"
 						border="1px"
-						borderColor={isActive ? "green.400" : "gray.300"}
+						borderColor={isActive ? "green.400" : borderColor}
 						spacing={6}
 						px={5}
 						py={4}
@@ -86,7 +90,7 @@ const RadioQuestion = ({
 						<VStack spacing={1} alignItems="start">
 							<Text
 								fontSize={!option.description ? "lg" : "sm"}
-								color="gray.700"
+								color={textColor}
 								fontWeight="semibold"
 							>
 								{option.name}
