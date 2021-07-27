@@ -1203,6 +1203,18 @@
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.0.6.tgz#023d72a5c4531b4ce204528971700a78a85a0c50"
   integrity sha512-Myxw//kzromB9yWgS8qYGuGVf91oBUUJpNvy5eM50sqvmKLbKjwLxohJnkWGTeeI9v9IBMtPLxz5Gc60FIfvCA==
 
+"@typeform/embed-react@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@typeform/embed-react/-/embed-react-1.0.7.tgz#3a40a2ba3962a69f3bd48dccda207daea433a61a"
+  integrity sha512-dMxWITJ38KtJ/eInIlD/oC6gsAYEpczribjzR1cifob0PezPw5aDoD7HZpuJupqMPr5BcxpADA4SuDG6G/LgIA==
+  dependencies:
+    "@typeform/embed" "^1.10.0"
+
+"@typeform/embed@^1.10.0":
+  version "1.15.0"
+  resolved "https://registry.yarnpkg.com/@typeform/embed/-/embed-1.15.0.tgz#4b3787d8dfe71dd6a1a34913affde6192560fe13"
+  integrity sha512-EHmMjy51RydEM2EPK6fwcM6PjfRb6p++ry406ZNSeP8uy9WWpbQxjKvJ8pWm+F5FGhdI7EF277euPIDjQcQpcg==
+
 "@types/component-emitter@^1.2.10":
   version "1.2.10"
   resolved "https://registry.yarnpkg.com/@types/component-emitter/-/component-emitter-1.2.10.tgz#ef5b1589b9f16544642e473db5ea5639107ef3ea"

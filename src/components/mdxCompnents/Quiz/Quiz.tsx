@@ -14,7 +14,7 @@ import React, { useState } from "react";
 import ModuleIconFactory from "../../Modules/ModuleIconFactory";
 import QuestionFactory from "./QuestionFactory";
 import { Form, Formik } from "formik";
-import { q1_1 } from "../../../quizes/1_1";
+import { q1_1 } from "../../../quizes/lesson1";
 
 const Quiz = ({ src }: { src: any }) => {
 	const [active, setActive] = useState(0);
@@ -40,13 +40,50 @@ const Quiz = ({ src }: { src: any }) => {
 	const textColor = useColorModeValue("gray.700", "gray.200");
 	const borderColor = useColorModeValue("gray.300", "gray.600");
 
-	let correct = 0;
+	const [score, setScore] = useState(0);
 
 	return (
 		<VStack alignItems="start" spacing={6} w="100%" py={8}>
 			<Formik
 				initialValues={initV}
 				onSubmit={(values, { setSubmitting }) => {
+					setScore(0);
+					let correct = 0;
+					Object.keys(values).forEach((key, idx) => {
+						console.log("/n answer " + idx + ": " + key);
+						if (Array.isArray(values[key])) {
+							console.log("array");
+							let points = 0;
+							values[key].forEach((val, i) => {
+								console.log(
+									"answer " +
+										i +
+										": " +
+										val +
+										"   corr: " +
+										questions[idx].correct
+								);
+								if (questions[idx].correct.includes(val)) {
+									points++;
+								}
+							});
+							console.log("points: " + points);
+							console.log(
+								"points divided: " + points / questions[idx].correct.length
+							);
+							correct += points / questions[idx].correct.length;
+						} else {
+							console.log("not array");
+							console.log(
+								"answer: " + values[key] + "   corr: " + questions[idx].correct
+							);
+							if (values[key] === questions[idx].correct) {
+								correct++;
+							}
+						}
+					});
+					console.log(correct);
+					setScore(correct);
 					setTimeout(() => {
 						alert(JSON.stringify(values, null, 2));
 						setSubmitting(false);
@@ -73,7 +110,7 @@ const Quiz = ({ src }: { src: any }) => {
 									fontSize="xl"
 									mr={2}
 								>
-									{correct || ""}
+									{score || ""}
 								</Text>
 								<Text fontWeight="semibold" fontSize="xl" mr={2}>
 									/
@@ -114,8 +151,8 @@ const Quiz = ({ src }: { src: any }) => {
 											if (!(active >= questions.length - 1)) {
 												setActive((prewIdx) => prewIdx + 1);
 											} else {
-												submitForm();
 												setActive((prewIdx) => prewIdx + 1);
+												submitForm();
 											}
 										}}
 										variant="outline"

@@ -3,6 +3,7 @@ export const q1_1 = [
 		type: "radio",
 		title: "What Is The Time?",
 		initialValue: [],
+		correct: [0, 2],
 		options: [
 			{
 				name: "Tewlwe o clock",
@@ -25,6 +26,7 @@ export const q1_1 = [
 		type: "radio",
 		title: "How Are You?",
 		initialValue: -1,
+		correct: 1,
 		options: [
 			{
 				name: "Guides",
@@ -57,6 +59,7 @@ export const q1_1 = [
 		type: "textInput",
 		title: "What is your name?",
 		initialValue: ["", ""],
+		correct: ["majdnem", "frefce"],
 		fields: [
 			{ placeholder: "Name", icon: "hand" },
 			{ placeholder: "Age", icon: "code" },
@@ -64,7 +67,8 @@ export const q1_1 = [
 	},
 	{
 		type: "complete",
-		initialValue: ["", ""],
+		initialValue: [],
+		correct: ["div", "h1"],
 		title: "Complete the sentence!",
 		text: "We use the --- tag to wrap things and we style it with the --- component.",
 	},
