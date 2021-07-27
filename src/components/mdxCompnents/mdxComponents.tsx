@@ -12,6 +12,7 @@ import {
 import React from "react";
 import CodeBlock from "./CodeBlock";
 import Quiz from "./Quiz/Quiz";
+import { Widget } from "@typeform/embed-react/build";
 
 const H2 = (props: any) => {
 	const anchor = props.children.replace(/ /g, "_").toLowerCase();
@@ -48,4 +49,5 @@ export const mdxComponents = {
 	),
 	CodeBlock: CodeBlock,
 	Quiz: Quiz,
+	Widget: (props: any) => <Widget {...props} />,
 };
